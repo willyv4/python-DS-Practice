@@ -1,3 +1,8 @@
+elmo = ('Elmo', 5, ['hugging', 'being nice'])
+sauron = ('Sauron', 5000, ['killing hobbits', 'chess'])
+gandalf = ('Gandalf', 10000, ['waving wands', 'chess'])
+
+
 def friend_date(a, b):
     """Given two friends, do they have any hobbies in common?
 
@@ -16,3 +21,13 @@ def friend_date(a, b):
         >>> friend_date(sauron, gandalf)
         True
     """
+
+    setA = set(a[2])
+    setB = set(b[2])
+
+    similarities = setA.intersection(setB)
+    return True if similarities else False
+
+
+print(friend_date(elmo, sauron))
+print(friend_date(gandalf, sauron))

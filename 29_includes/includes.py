@@ -1,3 +1,7 @@
+from re import T
+import string
+
+
 def includes(collection, sought, start=None):
     """Is sought in collection, starting at index start?
 
@@ -30,3 +34,22 @@ def includes(collection, sought, start=None):
         >>> includes({"apple": "red", "berry": "blue"}, "blue")
         True
     """
+
+    if start and isinstance(collection, list or tuple or str):
+        if sought in range(start, len(collection)):
+            return True
+        else:
+            return False
+    elif sought in collection:
+        return True
+    else:
+        return True
+
+
+print(includes([1, 2, 3], 1))
+print(includes([1, 2, 3], 1, 2))
+print(includes("hello", "o"))
+print(includes(('Elmo', 5, 'red'), 'red', 1))
+print(includes({1, 2, 3}, 1))
+print(includes({1, 2, 3}, 1, 3))
+print(includes({"apple": "red", "berry": "blue"}, "blue"))
